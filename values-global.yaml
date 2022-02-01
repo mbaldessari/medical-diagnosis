@@ -13,7 +13,7 @@ global:
 
   datacenter:
     region: us-east-2
-    clustername: jrickard-xray49
+    clustername: claudiol-xray
     #clustername: jrickard-xray
     domain: blueprints.rhecoeng.com
 
@@ -27,7 +27,7 @@ global:
       # External URL for Rados Gateway
       # Replace the <cluster-name> and <domain> to your openshift cluster values
       #       externalUrl: "https://s3-rgw-openshift-storage.apps.<cluster-name>.<domain>"
-      externalUrl: "https://s3-rgw-openshift-storage.apps.jrickard-xray49.blueprints.rhecoeng.com"
+      externalUrl: "https://s3-rgw-openshift-storage.apps.claudiol-xray.blueprints.rhecoeng.com"
       #externalUrl: "https://s3-rgw-openshift-storage.apps.jrickard-xray.blueprints.rhecoeng.com"
       # Backing store for ODF
       # This will be your S3 bucket name on AWS

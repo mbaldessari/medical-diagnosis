@@ -30,7 +30,7 @@ endif
 
 bootstrap:
 	#./scripts/bootstrap-medical-edge.sh
-	ansible-playbook ./ansible/site.yml 
+	ansible-playbook --extra-vars pattern_repo_dir=`pwd` --extra-vars home_dir="'{{ lookup('env', 'HOME') }}'" ./ansible/site.yml 
 
 test:
 	make -f common/Makefile CHARTS="$(wildcard charts/datacenter/*)" PATTERN_OPTS="-f values-datacenter.yaml" test

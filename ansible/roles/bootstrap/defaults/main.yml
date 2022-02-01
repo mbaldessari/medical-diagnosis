@@ -1,7 +1,7 @@
 #global
-pattern_repo_dir: /home/jrickard/workspace/RHC/patterns/medical-diagnosis/
+pattern_repo_dir: . 
 helm:
-  charts_dir: /home/jrickard/workspace/RHC/patterns/medical-diagnosis/charts/datacenter
+  charts_dir: "{{ pattern_repo_dir }}/charts/datacenter"
   output_dir: /tmp
 
 odf:
