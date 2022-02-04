@@ -15,7 +15,7 @@ spec:
   config:
     env:
       - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
-        value: {{ .Release.Name }}-{{ .Values.main.clusterGroupName }},openshift-gitops
+        value: '*'
 {{- if .Values.main.options.useCSV }}
   startingCSV: openshift-gitops-operator.{{ .Values.main.gitops.csv }}
 {{- end }}
