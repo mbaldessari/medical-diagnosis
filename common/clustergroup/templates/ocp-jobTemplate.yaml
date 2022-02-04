@@ -12,9 +12,9 @@ spec:
       - name: {{ .name }}
         image: {{ $.Values.ocImage }}
         command:
-          - /bin/bash
-          - -c 
-          - "{{ .args }}"
+        - /bin/bash
+        - -c 
+        - "{{ .args }}"
       restartPolicy: Never
       serviceAccountName: {{ $.Values.gitopsServiceAccount }}
     backoffLimit: 1
