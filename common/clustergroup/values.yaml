@@ -25,17 +25,16 @@ rbac:
   roleName: admin
 
 gitopsServiceAccount: openshift-gitops-argocd-application-controller
+gitopsNameSpace: openshift-gitops
 ocImage: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
 
 #Configurations for OCP/k8s job templates
 job:
 - name: grafana-clusterviewer
-  namespace: xraylab-1
   args: "oc adm policy add-cluster-role-to-user cluster-monitoring-view -z grafana-serviceaccount -n xraylab-1"
   serviceAccountName: openshift-gitops-argocd-application-controller
 
 - name: odf-node-labeler
-  namespace: openshift-gitops
   args: "oc label nodes -l node-role.kubernetes.io/worker= cluster.ocs.openshift.io/openshift-storage="
   serviceAccountName: openshift-gitops-argocd-application-controller
 
@@ -43,7 +42,7 @@ job:
 role:
   cluster: false
   name: ""
-  namespace: ""
+  namespace: "openshift-gitops"
   resources: "pods"
   verbs:
     - '"get"'
