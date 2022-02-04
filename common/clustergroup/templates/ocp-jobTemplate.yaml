@@ -17,6 +17,5 @@ spec:
         - "{{ .args }}"
       restartPolicy: Never
       serviceAccountName: {{ $.Values.gitopsServiceAccount }}
-    backoffLimit: 1
 {{- end }}
 {{- end }}
