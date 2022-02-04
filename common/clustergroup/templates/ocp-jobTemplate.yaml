@@ -5,6 +5,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: oc-cli-{{ .name }}
+  namespace: {{ $.Values.gitopsNameSpace }}
 spec:
   template:
     spec:
