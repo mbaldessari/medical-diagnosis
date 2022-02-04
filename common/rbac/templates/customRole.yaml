@@ -1,0 +1,13 @@
+{{- if .Values.createCustomRole }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ .Values.role.name }}
+{{- if eq .Values.role.cluster false }}
+  namespace: {{ .Values.pattern.namespace }}
+{{- end }}
+rules:
+- apiGroups: [""]
+  resources: [{{ .Values.role.resources | quote }}]
+  verbs: [{{ join ", " .Values.role.verbs }}]
+{{- end }}

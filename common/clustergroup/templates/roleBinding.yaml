@@ -1,0 +1,16 @@
+{{- if .Values.deployRBAC }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ .Values.pattern.namespace}}-{{ .Values.rbac.roleName }}-rolebinding
+  namespace: {{ .Values.pattern.namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ .Values.rbac.roleName }}
+subjects:
+- kind: ServiceAccount
+  name: {{ .Values.pattern.namespace }}-sa
+  namespace: {{ .Values.pattern.namespace }}
+
+{{- end }}

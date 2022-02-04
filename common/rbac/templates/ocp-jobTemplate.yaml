@@ -1,0 +1,22 @@
+{{- if .Values.createJob }}
+{{- range .Values.job }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: oc-cli
+spec:
+  template:
+    spec:
+      containers:
+      - name: {{ .name }}
+        image: {{ $.Values.ocImage }}
+        command:
+          - /bin/bash
+          - -c 
+          - "{{ .args }}"
+      restartPolicy: Never
+      serviceAccountName: {{ $.Values.gitopsServiceAccount }}
+    backoffLimit: 1
+{{- end }}
+{{- end }}
