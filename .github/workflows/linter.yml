@@ -1,5 +1,5 @@
 ---
-name: Unit test common
+name: Unit tests
 
 #
 # Documentation:
@@ -17,7 +17,7 @@ on: [push, pull_request]
 jobs:
   build:
     # Name the Job
-    name: Unit common/ Code Base
+    name: Unit Test Code Base
     # Set the agent to run on
     runs-on: ubuntu-latest
 
@@ -48,17 +48,12 @@ jobs:
       #     VALIDATE_ALL_CODEBASE: false
       #     DEFAULT_BRANCH: main
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run make common-test
+        run: |
+          make common-test
       - name: Run make test
         run: |
           make test
-
       - name: Run make helmlint
         run: |
           make helmlint
-
-      - name: Run make helm kubeconform
-        run: |
-          curl -L -O https://github.com/yannh/kubeconform/releases/download/v0.4.13/kubeconform-linux-amd64.tar.gz
-          tar xf kubeconform-linux-amd64.tar.gz
-          sudo mv -v kubeconform /usr/local/bin
-          make kubeconform
