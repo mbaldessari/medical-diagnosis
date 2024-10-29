@@ -9,8 +9,8 @@ global:
   datacenter:
     cloudProvider: AWS
     storageClassName: gp3-csi
-    region: use-west-2
-    clustername: mdslimcommon
+    region: eu-central-1
+    clustername: mcg-hub
     domain: aws.validatedpatterns.io
 
   xraylab:
