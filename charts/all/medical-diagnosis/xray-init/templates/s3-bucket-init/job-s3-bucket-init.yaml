@@ -25,6 +25,10 @@ spec:
                 secretKeyRef:
                   name: s3-secret-bck
                   key: AWS_SECRET_ACCESS_KEY
+            - name: kafka_endpoint
+              value: '{{ .Values.kafkaSource.bootstrapserver }}'
+            - name: bucket_base_name
+              value: '{{ .Values.global.xraylab.s3.bucketBaseName }}'
           volumeMounts:
             - mountPath: /opt/app-root/src/bucket-init.py
               name: bucket-init
